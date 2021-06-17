@@ -19,9 +19,19 @@ function App() {
 
   
 
-  const addTask = (userInput ) => {
+  const addTask = ( userInput ) => {
     let copy = [...toDoList];
-    copy = [...copy, { id: toDoList.length + 1, task: userInput}];
+    let unique = true;
+    for(let i=0; i<toDoList.length; i++){
+      console.log(toDoList[i].task);
+      if(toDoList[i].task === userInput){
+        unique = false;
+        window.alert("Duplicate Task!");
+        break;
+      }
+    }
+    if(unique === true)
+      copy = [...copy, { id: toDoList.length + 1, task: userInput}];
     setToDoList(copy);
   }
 
