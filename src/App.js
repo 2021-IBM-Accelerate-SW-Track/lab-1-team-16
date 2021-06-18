@@ -25,7 +25,7 @@ function App() {
       hour -= 12;
       ampm = "pm";
     }
-    return `${(date.getMonth()+1)}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${hour+date.toString().substring(18, 24)+ampm}`
+    return `${(date.getMonth()+1)}/${date.getDate()}/${date.getFullYear().toString().substring(2)} ${hour+date.toString().substring(18, 24)+ampm}`
   }
 
   const addTask = (userInput ) => {
