@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   
-  const [ toDoList, setToDoList ] = useState(data);
+  const [ toDoList, setToDoList ] = useState([]);
 
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
