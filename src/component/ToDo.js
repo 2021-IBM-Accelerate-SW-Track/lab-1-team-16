@@ -13,11 +13,11 @@ const ToDo = ({toDoList, todo}) => {
     function updateEntry(n){
         let unique = true;
         for(let i=0; i<toDoList.length; i++){
-          if(toDoList[i].task.trim().toLowerCase() === todo.task.trim().toLowerCase()){
-            unique = false;
-            window.alert("Duplicate Task!");
-            break;
-          }
+            if(toDoList[i].task.trim().toLowerCase() === document.getElementById(n+.1).value.trim().toLowerCase()){
+                unique = false;
+                window.alert("Duplicate Task!");
+                break;
+            }
         }
         if(unique === true){
             var newId = n*-1;
@@ -51,7 +51,7 @@ const ToDo = ({toDoList, todo}) => {
             <span id={todo.id*-1}>{todo.task}</span> {todo.timeAdded}
             
             <TextField id={todo.id+.1}  variant="outlined" placeholder="Enter updated task..." size="small"></TextField>
-            <Button onClick={() => updateEntry( todo.id)} variant="contained" color="primary">Update</Button>
+            <Button id={todo.id} onClick={() => updateEntry( todo.id)} variant="contained" color="primary">Update</Button>
             <Button id={todo.id} onClick={() => deleteEntries(todo.id)} variant="contained" color="secondary">Delete</Button>
         </div>
     );
