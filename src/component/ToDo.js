@@ -5,7 +5,7 @@ import { TextField } from '@material-ui/core';
 
 
 
-const ToDo = ({todo, deleteEntry}) => {
+const ToDo = ({toDoList, todo, deleteEntry}) => {
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -16,9 +16,14 @@ const ToDo = ({todo, deleteEntry}) => {
         var newId = n*-1;
         var divId = document.getElementById(newId);
         if (divId != null && n > 0){
-            document.getElementById(newId).innerHTML = document.getElementById(n+.1).value;
-        todo.task = document.getElementById(n+.1).value;
-        }  
+            var newItem = document.getElementById(n+.1).value;
+            for (let i=0; i<n;  i++){
+                if (toDoList[i].task == newItem) alert("Duplicate found!");
+            }
+            document.getElementById(newId).innerHTML = newItem;
+            todo.task = document.getElementById(n+.1).value;
+        }
+        
     }
 
     function deleteEntries(n){
@@ -29,6 +34,7 @@ const ToDo = ({todo, deleteEntry}) => {
             };
         }
         todo.task += "(Deleted)";
+        
     }
     
     return (
