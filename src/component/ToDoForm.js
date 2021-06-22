@@ -10,15 +10,23 @@ const ToDoForm = ({ addTask }) => {
     }
     
     const handleSubmit = (e) => {
-        e.preventDefault();
-        addTask(userInput );
-        setUserInput("");
+        if(userInput === "" || !userInput.trim()){
+            window.alert("Please enter a task.");
+
+        }
+        else{
+            e.preventDefault();
+            addTask(userInput );
+            setUserInput("");
+        }
+       
+        console.log(userInput)
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <input value={userInput} type="text" onChange={handleChange} placeholder="Enter task..."/>
-            <Button onClick={handleSubmit}>Create</Button>
+            <Button onClick={handleSubmit}>Create</Button>        
         </form>
     );
 };
