@@ -12,9 +12,6 @@ function App() {
   //setToDoList is the function to modify the state
   const [ toDoList, setToDoList ] = useState([]);
 
- 
-  
-
   const constructTime = () => {
     const date = new Date();
     let hour = date.getHours();
@@ -49,7 +46,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <ToDoList toDoList={toDoList}  />
+      <ToDoList toDoList={toDoList} />
       <ToDoForm addTask={addTask}/>
     </div>
   );

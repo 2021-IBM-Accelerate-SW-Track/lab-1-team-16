@@ -14,7 +14,7 @@ const ToDoList = ({toDoList}) => {
         <div>
             {toDoList.map(todo => {
                 return (
-                    <ToDo todo={todo} deleteEntry={deleteEntry} />
+                    <ToDo toDoList={toDoList} todo={todo} deleteEntry={deleteEntry} />
                 )
             })}
         </div>
