@@ -31,14 +31,14 @@ function App() {
     let copy = [...toDoList];
     let unique = true;
     for(let i=0; i<toDoList.length; i++){
-      //console.log(toDoList[i].task);
-      if(toDoList[i].task === userInput){
+      console.log(toDoList[i].task);
+      if(toDoList[i].task.toLowerCase() === userInput.trim().toLowerCase()){
         unique = false;
         window.alert("Duplicate Task!");
         break;
       }
     }
-    if(unique === true && userInput !== undefined){
+    if(unique === true){
       copy = [...copy, { id: toDoList.length + 1, task: userInput, timeAdded: constructTime()}];
 
       setToDoList(copy);
